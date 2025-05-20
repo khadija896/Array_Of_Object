@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+class Car {
+    String size;
+    String color;
+
+    Car(String size, String color) {
+        this.size = size;
+        this.color = color;
+    }
+
+    void display() {
+        System.out.println("Car Size: " + size + ", Car Color: " + color);
+    }
+}
+
+class CarArray {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of cars: ");
+        int n = sc.nextInt();
+        sc.nextLine(); // consume newline
+
+        Car[] cars = new Car[n];
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter details for car " + (i + 1) + ":");
+            System.out.print("Size (small/medium/large): ");
+            String size = sc.nextLine();
+            System.out.print("Color: ");
+            String color = sc.nextLine();
+            cars[i] = new Car(size, color);
+        }
+
+        System.out.println("\nCar List:");
+        for (Car car : cars) {
+            car.display();
+        }
+    }
+}
